@@ -1,0 +1,109 @@
+==================== 2026-10-12T08:55:00.948616Z | 00000000-0000-0000-0000-000000000000 ====================
+==================== 2026-10-12T08:55:00.952485Z | 7c985708-c16a-4d01-8af2-494544878013 ====================
+08:55:00.953848 [info ]: Starting dbt LSP server
+08:55:00.954623 [info ]: Connecting to LSP client on port 8000
+08:55:00.959448 [info ]: Successfully connected to LSP client
+08:55:00.959900 [info ]: Creating LSP service...
+08:55:00.967961 [info ]: Creating LSP server...
+08:55:00.967986 [info ]: Starting LSP server...
+08:55:01.072728 [info ]: Loading profiles.yml
+==================== 2026-10-12T08:55:01.224440Z | 1d179440-4c5f-463e-8b89-dcf5812ac2ba ====================
+08:55:01.227150 [info ]: Started loading project
+08:55:01.238953 [info ]: Loading profiles.yml
+08:55:01.297466 [debug]:    Started loading packages
+08:55:01.311712 [debug]:     Loaded [  0.01s] packages
+08:55:01.322727 [info ]: Finished loading project [  0.10s]
+08:55:01.329392 [info ]: Started parsing
+08:55:01.438423 [debug]: Finished parsing models/schema.yml [  0.01s]
+08:55:01.497525 [debug]: Finished parsing models/intermediate/int_users_enriched.sql [  0.03s]
+08:55:01.520819 [debug]: Finished parsing models/marts/dim_users.sql [  0.02s]
+08:55:01.532406 [debug]: Finished parsing models/marts/top_3_recent_users_per_state.sql [  0.01s]
+08:55:01.546048 [debug]: Finished parsing models/staging/stg_users.sql [  0.01s]
+08:55:01.574126 [debug]: Finished parsing tests/assert_age_in_range.sql [  0.01s]
+08:55:01.588088 [debug]: Finished parsing tests/assert_valid_email.sql [  0.01s]
+08:55:01.809489 [info ]: Finished parsing [  0.48s]
+08:55:01.814608 [info ]: Cached model count updated: 4 models (estimate)
+08:55:01.814634 [info ]: Cached model count updated: 4 models (accurate)
+08:55:01.817115 [info ]: Started scheduling
+08:55:01.821800 [info ]: Finished scheduling [  0.00s]
+08:55:01.821845 [debug]: Compilation - 0 nodes selected: {}
+08:55:01.822867 [warn ]: [NoNodesForSelectionCriteria (dbt1092)]: The selection criterion '' does not match any enabled nodes
+08:55:01.823575 [warn ]: [NoNodesSelected (dbt1601)]: Nothing to do. Try checking your model configs and model specification args
+08:55:01.824156 [info ]: Started scheduling
+08:55:01.825001 [info ]: Finished scheduling [  0.00s]
+08:55:01.847362 [info ]: Started building task graph
+08:55:01.849157 [info ]: Finished building task graph [  0.00s]
+08:55:01.903504 [info ]: Started scheduling
+08:55:01.903553 [info ]: Finished scheduling [  0.00s]
+08:55:01.904852 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' with 2 warnings for target 'dev' [680ms]
+08:55:01.905006 [info ]: Cached model count updated: 4 models (accurate)
+==================== 2026-10-12T08:55:03.551122Z | c38dac8a-970d-4592-92ba-82abcd11615f ====================
+08:55:03.551199 [info ]: Started loading project
+08:55:03.551908 [info ]: Loading profiles.yml
+08:55:03.562264 [info ]: Finished loading project [  0.01s]
+08:55:03.587458 [info ]: Cached model count updated: 4 models (estimate)
+08:55:03.587479 [info ]: Cached model count updated: 4 models (accurate)
+08:55:03.587506 [info ]: Started scheduling
+08:55:03.587572 [info ]: Finished scheduling [  0.00s]
+08:55:03.587590 [debug]: Compilation - 5 nodes selected: {"model.user_pipeline.dim_users", "model.user_pipeline.int_users_enriched", "model.user_pipeline.stg_users", "model.user_pipeline.top_3_recent_users_per_state", "seed.user_pipeline.clean_users"}
+08:55:03.591331 [debug]:    Started downloading relations (1 items)
+08:55:03.601352 [debug]: DuckDB driver resolved: duckdb 1.5.4
+08:55:03.914125 [debug]: create_debug_span(...).entered() took 732µs
+08:55:03.934377 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 5.3511ms
+08:55:03.934714 [debug]: reader.schema() took 308.7µs
+08:55:03.934795 [debug]: batch-consume loop (for res in reader) took 65.5µs
+08:55:03.935136 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 20.9876ms
+08:55:03.937830 [debug]: concat_batches + normalize_result_column_names took 2.6751ms
+08:55:03.938194 [debug]: record_current_span_status_from_attrs took 343.7µs
+08:55:03.938459 [debug]: Query executed on node unknown:
+SELECT table_catalog, table_schema, table_name, table_type FROM information_schema.tables WHERE table_schema = 'main' AND lower(table_catalog) = lower('user_pipeline')
+08:55:03.938479 [debug]: drop(query_span_guard) (span exit/export) took 270.6µs
+08:55:03.940429 [debug]:   Finished [  0.35s] downloading relations (1 items)
+08:55:03.941193 [info ]: Started building task graph
+08:55:03.943362 [info ]: Finished building task graph [  0.00s]
+08:55:04.009020 [info ]: Started rendering (5 nodes)
+08:55:04.009639 [info ]: Started model main.top_3_recent_users_per_state
+08:55:04.010076 [debug]: Started rendering model main.top_3_recent_users_per_state
+08:55:04.010671 [info ]: Started model main.dim_users
+08:55:04.010708 [debug]: Started rendering model main.dim_users
+08:55:04.010725 [info ]: Started model main.int_users_enriched
+08:55:04.010732 [debug]: Started rendering model main.int_users_enriched
+08:55:04.010744 [info ]: Started model main.stg_users
+08:55:04.010753 [debug]: Started rendering model main.stg_users
+08:55:04.011213 [info ]: Started seed main.clean_users
+08:55:04.011232 [debug]: Started rendering seed main.clean_users
+08:55:04.013418 [debug]: Finished rendering [  0.00s] seed main.clean_users [success]
+08:55:04.013451 [info ]:  Succeeded seed  main.clean_users (table) [5 of 5 in 0.00s]
+08:55:04.026810 [debug]: Compiled SQL for node model.user_pipeline.int_users_enriched at target\.lsp\compiled\user_pipeline\models\intermediate\int_users_enriched.sql
+08:55:04.026810 [debug]: Compiled SQL for node model.user_pipeline.top_3_recent_users_per_state at target\.lsp\compiled\user_pipeline\models\marts\top_3_recent_users_per_state.sql
+08:55:04.026810 [debug]: Compiled SQL for node model.user_pipeline.stg_users at target\.lsp\compiled\user_pipeline\models\staging\stg_users.sql
+08:55:04.027481 [debug]: Finished rendering [  0.02s] model main.stg_users [success]
+08:55:04.027973 [info ]: Started analyzing (4 nodes)
+08:55:04.028023 [debug]: Started analyzing model main.stg_users
+08:55:04.028352 [debug]: Finished rendering [  0.02s] model main.int_users_enriched [success]
+08:55:04.028398 [debug]: Started analyzing model main.int_users_enriched
+08:55:04.028439 [debug]: Finished rendering [  0.02s] model main.top_3_recent_users_per_state [success]
+08:55:04.028467 [debug]: Started analyzing model main.top_3_recent_users_per_state
+08:55:04.043749 [debug]: Finished analyzing [  0.02s] model main.int_users_enriched [success]
+08:55:04.043821 [info ]:  Succeeded model main.int_users_enriched (view) [3 of 5 in 0.03s]
+08:55:04.043861 [debug]: Finished analyzing [  0.02s] model main.top_3_recent_users_per_state [success]
+08:55:04.043870 [info ]:  Succeeded model main.top_3_recent_users_per_state (view) [1 of 5 in 0.03s]
+08:55:04.051242 [debug]: Compiled SQL for node model.user_pipeline.dim_users at target\.lsp\compiled\user_pipeline\models\marts\dim_users.sql
+08:55:04.051482 [debug]: Finished rendering [  0.04s] model main.dim_users [success]
+08:55:04.051552 [info ]: Finished rendering [  0.04s] (5 nodes, 0 skipped, 0 errors)
+08:55:04.051583 [debug]: Started analyzing model main.dim_users
+08:55:04.055106 [debug]: Finished analyzing [  0.03s] model main.stg_users [success]
+08:55:04.055138 [info ]:  Succeeded model main.stg_users (view) [4 of 5 in 0.04s]
+08:55:04.057599 [debug]: Finished analyzing [  0.01s] model main.dim_users [success]
+08:55:04.057629 [info ]: Finished analyzing [  0.03s] (4 nodes, 0 skipped, 0 errors)
+08:55:04.057643 [info ]:  Succeeded model main.dim_users (incremental) [2 of 5 in 0.05s]
+08:55:04.080366 [info ]: Started scheduling
+08:55:04.080442 [info ]: Finished scheduling [  0.00s]
+08:55:04.080504 [info ]: 
+==================== Execution Summary =====================
+Finished 'compile' successfully for target 'dev' [529ms]
+Processed: 4 models | 1 seed
+Summary: 5 total | 5 success
+08:55:04.080847 [info ]: Cached model count updated: 4 models (accurate)

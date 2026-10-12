@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "random-user-etl"
+version = "1.0.0"
+description = "Random User ETL + dbt assessment submission"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.0",
+  "pydantic[email]>=2.0",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "dbt-duckdb>=1.8"]
+
+[project.scripts]
+user-etl = "etl_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "--cov=etl_pipeline --cov-report=term-missing --cov-fail-under=85"
+testpaths = ["tests"]

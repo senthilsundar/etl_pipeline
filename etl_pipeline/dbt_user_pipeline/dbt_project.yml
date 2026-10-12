@@ -1,0 +1,22 @@
+name: user_pipeline
+version: '1.0.0'
+config-version: 2
+profile: user_pipeline
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+clean-targets: ["target", "dbt_packages"]
+models:
+  user_pipeline:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+seeds:
+  user_pipeline:
+    clean_users:
+      +column_types:
+        age: integer
+        registration_date: timestamp

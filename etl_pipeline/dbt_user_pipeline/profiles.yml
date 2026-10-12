@@ -1,0 +1,7 @@
+user_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: user_pipeline.duckdb
+      threads: 4
